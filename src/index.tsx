@@ -54,4 +54,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.querySelector("#roots"));
+ReactDOM.render(<App />, document.querySelector("#root"));
