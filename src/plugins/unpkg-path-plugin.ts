@@ -35,8 +35,9 @@ export const unpkgPathPlugin = () => {
           return {
             loader: "jsx",
             contents: `
-              const message = require('react-router');
-              console.log(message);
+              const react = require('react');
+              const reactDOM = require('react-dom');
+              console.log(react, reactDOM);
             `,
           };
         }
