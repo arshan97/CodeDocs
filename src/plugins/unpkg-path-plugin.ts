@@ -2,7 +2,7 @@ import axios from "axios";
 import * as esbuild from "esbuild-wasm";
 import localforage from "localforage";
 
-export const unpkgPathPlugin = () => {
+export const unpkgPathPlugin = (input: string) => {
   const fileCache = localforage.createInstance({
     name: "fileCache",
   });
@@ -39,11 +39,7 @@ export const unpkgPathPlugin = () => {
         if (args.path === "index.js") {
           return {
             loader: "jsx",
-            contents: `
-              const react = require('react');
-              const reactDOM = require('react-dom');
-              console.log(react, reactDOM);
-            `,
+            contents: input,
           };
         }
 
