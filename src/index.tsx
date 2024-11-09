@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import * as esbuild from "esbuild-wasm";
 import { unpkgPathPlugin } from "./plugins/unpkg-path-plugin";
 import { fetchPlugin } from "./plugins/fetch-plugin";
 
 const App = () => {
   const [input, setInput] = useState("");
-  const [code, setCode] = useState("");
   const ref = useRef<any>();
   const iframe = useRef<any>();
 
@@ -64,15 +63,18 @@ const App = () => {
       <div>
         <button onClick={onClick}>Submit!</button>
       </div>
-      <pre>{code}</pre>
+
       <iframe
         ref={iframe}
         title="CodeDocs"
         srcDoc={html}
-        sandbox="allow-scripts"
+        sandbox="allow-scripts allow-modals"
       />
     </div>
   );
 };
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+const root = ReactDOM.createRoot(
+  document.querySelector("#root") as HTMLElement
+);
+root.render(<App />);
