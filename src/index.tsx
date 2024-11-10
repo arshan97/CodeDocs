@@ -1,8 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom/client";
-import * as esbuild from "esbuild-wasm";
-import { unpkgPathPlugin } from "./plugins/unpkg-path-plugin";
-import { fetchPlugin } from "./plugins/fetch-plugin";
 import CodeEditor from "./components/CodeEditor";
 import "bulmaswatch/darkly/bulmaswatch.min.css";
 import Preview from "./components/Preview";
