@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import * as prettier from "prettier/standalone";
 import parser from "prettier/plugins/babel";
 import * as prettierPluginEstree from "prettier/plugins/estree";
+import "./CodeEditor.css";
 
 interface CodeEditorProps {
   initialValue: string;
@@ -25,13 +26,17 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
       semi: true,
       singleQuote: true,
     });
-    console.log(formatted);
-    editorRef.current.setValue(formatted);
+    editorRef.current.setValue(formatted.replace(/\n$/, ""));
   }
 
   return (
-    <div>
-      <button onClick={format}>Format!</button>
+    <div className="editor-wrapper">
+      <button
+        className="button button-format is-primary is-small"
+        onClick={format}
+      >
+        Format!
+      </button>
       <Editor
         onMount={handleEditorDidMount}
         onChange={onChange}
