@@ -1,31 +1,12 @@
-import { useState } from "react";
 import ReactDOM from "react-dom/client";
-import CodeEditor from "./components/CodeEditor";
 import "bulmaswatch/darkly/bulmaswatch.min.css";
-import Preview from "./components/Preview";
-import bundler from "./bundler";
+import CodeCell from "./components/CodeCell";
 
 const App = () => {
-  const [input, setInput] = useState("");
-  const [code, setCode] = useState("");
-
-  const onClick = async () => {
-    const output = await bundler(input);
-    setCode(output);
-  };
-
   return (
     <div>
-      <CodeEditor
-        initialValue=""
-        onChange={(value: string) => setInput(value)}
-      />
-
-      <Preview code={code} />
-
-      <div>
-        <button onClick={onClick}>Submit!</button>
-      </div>
+      <CodeCell />
+      <CodeCell />
     </div>
   );
 };
