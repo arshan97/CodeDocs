@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import * as prettier from "prettier/standalone";
 import parser from "prettier/plugins/babel";
 import * as prettierPluginEstree from "prettier/plugins/estree";
-import "./CodeEditor.css";
+import "../styles/CodeEditor.css";
 
 interface CodeEditorProps {
   initialValue: string;
