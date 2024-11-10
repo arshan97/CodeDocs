@@ -1,11 +1,10 @@
 import ReactDOM from "react-dom/client";
-import "bulmaswatch/darkly/bulmaswatch.min.css";
+import "bulmaswatch/cyborg/bulmaswatch.min.css";
 import CodeCell from "./components/CodeCell";
 
 const App = () => {
   return (
-    <div>
-      <CodeCell />
+    <div style={{ padding: "20px" }}>
       <CodeCell />
     </div>
   );

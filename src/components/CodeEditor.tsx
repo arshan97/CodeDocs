@@ -1,5 +1,5 @@
 import Editor from "@monaco-editor/react";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import * as prettier from "prettier/standalone";
 import parser from "prettier/plugins/babel";
 import * as prettierPluginEstree from "prettier/plugins/estree";
@@ -41,7 +41,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
         onMount={handleEditorDidMount}
         onChange={onChange}
         language="javascript"
-        height="500px"
+        height="100%"
         theme="vs-dark"
         value={initialValue}
         options={{

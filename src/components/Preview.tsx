@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import "../styles/Preview.css";
 
 const html = `
 <html>
@@ -36,13 +37,15 @@ const Preview = ({ code }: { code: string }) => {
   }, [code]);
 
   return (
-    <iframe
-      ref={iframe}
-      title="CodeDocs"
-      srcDoc={html}
-      sandbox="allow-scripts allow-modals"
-      onLoad={handleLoad}
-    />
+    <div className="preview-wrapper">
+      <iframe
+        ref={iframe}
+        title="CodeDocs"
+        srcDoc={html}
+        sandbox="allow-scripts allow-modals"
+        onLoad={handleLoad}
+      />
+    </div>
   );
 };
 
