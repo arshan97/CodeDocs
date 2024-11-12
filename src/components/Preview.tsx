@@ -24,7 +24,7 @@ const html = `
 `;
 
 const Preview = ({ code }: { code: string }) => {
-  const iframe = useRef<HTMLIFrameElement>(null);
+  const iframe = useRef<any>(null);
 
   const handleLoad = () => {
     // After the iframe resets and loads the new srcDoc content, post the code
@@ -33,9 +33,11 @@ const Preview = ({ code }: { code: string }) => {
 
   useEffect(() => {
     // Reset the iframe by setting the srcDoc, which will trigger the onLoad event
-    if (iframe.current) {
-      iframe.current.srcdoc = html;
-    }
+
+    iframe.current.srcdoc = html;
+    setTimeout(() => {
+      iframe.current?.contentWindow?.postMessage(code, "*");
+    }, 50);
   }, [code]);
 
   return (
@@ -45,7 +47,7 @@ const Preview = ({ code }: { code: string }) => {
         title="CodeDocs"
         srcDoc={html}
         sandbox="allow-scripts allow-modals"
-        onLoad={handleLoad}
+        // onLoad={handleLoad}
       />
     </div>
   );
