@@ -9,13 +9,16 @@ const html = `
   <body>
   <div id="root"></div>
   <script>
+    const handleError = (err) => {
+       const root = document.querySelector('#root')
+       root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>';
+       console.error(err);
+    }
     window.addEventListener('message', (event) => {
       try {
         eval(event.data)
       } catch(err) {
-       const root = document.querySelector('#root')
-       root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>';
-       console.error(err);
+        handleError(err)
       }
     }, false)
   </script>
@@ -33,11 +36,10 @@ const Preview = ({ code }: { code: string }) => {
 
   useEffect(() => {
     // Reset the iframe by setting the srcDoc, which will trigger the onLoad event
-
     iframe.current.srcdoc = html;
-    setTimeout(() => {
-      iframe.current?.contentWindow?.postMessage(code, "*");
-    }, 50);
+    // setTimeout(() => {
+    //   iframe.current?.contentWindow?.postMessage(code, "*");
+    // }, 50);
   }, [code]);
 
   return (
@@ -47,7 +49,7 @@ const Preview = ({ code }: { code: string }) => {
         title="CodeDocs"
         srcDoc={html}
         sandbox="allow-scripts allow-modals"
-        // onLoad={handleLoad}
+        onLoad={handleLoad}
       />
     </div>
   );
