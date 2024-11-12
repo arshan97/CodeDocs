@@ -14,6 +14,12 @@ const html = `
        root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>';
        console.error(err);
     }
+
+    window.addEventListener('error', (event) => {
+      event.preventDefault()
+      handleError(event.error)
+    })
+
     window.addEventListener('message', (event) => {
       try {
         eval(event.data)
