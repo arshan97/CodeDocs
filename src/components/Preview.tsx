@@ -32,7 +32,7 @@ const html = `
 </html>
 `;
 
-const Preview = ({ code }: { code: string }) => {
+const Preview = ({ code, error }: { code: string; error: string }) => {
   const iframe = useRef<any>(null);
 
   const handleLoad = () => {
@@ -57,6 +57,7 @@ const Preview = ({ code }: { code: string }) => {
         sandbox="allow-scripts allow-modals"
         onLoad={handleLoad}
       />
+      {error && <div className="preview-error">{error}</div>}
     </div>
   );
 };
