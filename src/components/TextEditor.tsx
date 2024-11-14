@@ -1,9 +1,11 @@
-import MarkdownEditor from "@uiw/react-markdown-editor";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import MDEditor from "@uiw/react-md-editor";
+import "../styles/TextEditor.css";
 
 const TextEditor = () => {
   const [editing, setEditing] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
+  const [value, setValue] = useState("# Click here to edit!");
 
   useEffect(() => {
     const listener = (event: MouseEvent) => {
@@ -25,15 +27,21 @@ const TextEditor = () => {
 
   if (editing) {
     return (
-      <div ref={ref}>
-        <MarkdownEditor visible height="200px" />
+      <div className="text-editor" ref={ref}>
+        <MDEditor
+          value={value}
+          onChange={(v) => setValue(v || "")}
+          preview="live"
+        />
       </div>
     );
   }
 
   return (
-    <div onClick={() => setEditing(true)}>
-      <MarkdownEditor.Markdown source="Click here to Edit!" />
+    <div className="text-editor" onClick={() => setEditing(true)}>
+      <div className="">
+        <MDEditor.Markdown source={value} />
+      </div>
     </div>
   );
 };
