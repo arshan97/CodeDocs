@@ -1,6 +1,7 @@
 import { ActionType } from "../action-types";
 import { Action } from "../actions";
 import { Cell } from "../cell";
+import { produce } from "immer";
 
 interface CellsState {
   loading: boolean;
@@ -18,7 +19,7 @@ const initialState: CellsState = {
   order: [],
 };
 
-const reducer = (state = initialState, action: Action): CellsState => {
+const reducer = produce((state: CellsState = initialState, action: Action) => {
   switch (action.type) {
     case ActionType.MOVE_CELL:
       return state;
@@ -27,7 +28,10 @@ const reducer = (state = initialState, action: Action): CellsState => {
       return state;
 
     case ActionType.UPDATE_CELL:
-      return state;
+      const { id, content } = action.payload;
+
+      state.data[id].content = content;
+      return;
 
     case ActionType.INSERT_CELL_BEFORE:
       return state;
@@ -35,6 +39,6 @@ const reducer = (state = initialState, action: Action): CellsState => {
     default:
       return state;
   }
-};
+});
 
 export default reducer;
