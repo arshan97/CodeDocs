@@ -4,7 +4,7 @@ import Preview from "./Preview";
 import bundler from "../bundler";
 import Resizable from "./Resizable";
 import { Cell } from "../state";
-import { updateCell } from "../state/action-creators";
+import { useActions } from "../hooks/useActions";
 
 interface CodeCellProps {
   cell: Cell;
@@ -13,6 +13,7 @@ interface CodeCellProps {
 const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
+  const { updateCell } = useActions();
 
   useEffect(() => {
     const timer = setTimeout(async () => {
