@@ -13,7 +13,7 @@ interface CodeCellProps {
 const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const { updateCell, createBundle } = useActions();
   const bundle = useTypedSelector((state: any) => state.bundles[cell.id]);
-  console.log(bundle);
+
   useEffect(() => {
     const timer = setTimeout(async () => {
       createBundle(cell.id, cell.content);
@@ -22,7 +22,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [cell.content, cell.id]);
+  }, [cell.content, cell.id, createBundle]);
 
   return (
     <Resizable direction="vertical">
