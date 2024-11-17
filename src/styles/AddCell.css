@@ -1,6 +1,6 @@
 .add-cell {
   position: relative;
-  opacity: 0;
+  opacity: 0.4;
   transition: opacity 0.3s ease-in;
 }
 
