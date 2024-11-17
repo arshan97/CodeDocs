@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
-import "bulmaswatch/slate/bulmaswatch.min.css";
-import TextEditor from "./components/TextEditor";
+import "bulmaswatch/cyborg/bulmaswatch.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Provider } from "react-redux";
 import { store } from "./state";
 import CellList from "./components/CellList";
