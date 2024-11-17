@@ -45,7 +45,9 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
   return (
     <div className="text-editor" onClick={() => setEditing(true)}>
       <div className="">
-        <MDEditor.Markdown source={cell.content || "Click to edit..."} />
+        <MDEditor.Markdown
+          source={cell.content || "<h2>Click to edit...</h2>"}
+        />
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const CellList = () => {
 
   const renderedCells = cells.map((cell) => (
     <Fragment key={cell.id}>
-      <AddCell nextCellId={cell.id} />
+      {/* <AddCell nextCellId={cell.id} /> */}
       <CellListItem cell={cell} />
     </Fragment>
   ));
