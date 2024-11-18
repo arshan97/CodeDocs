@@ -37,6 +37,9 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
         <MDEditor
           value={cell.content || ""}
           onChange={(v) => updateCell(cell.id, v || "")}
+          style={{
+            borderRadius: "5px",
+          }}
         />
       </div>
     );
@@ -44,11 +47,12 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
 
   return (
     <div className="text-editor" onClick={() => setEditing(true)}>
-      <div className="">
-        <MDEditor.Markdown
-          source={cell.content || "<h2>Click to edit...</h2>"}
-        />
-      </div>
+      <MDEditor.Markdown
+        source={cell.content || "Click to edit..."}
+        style={{
+          borderRadius: "5px",
+        }}
+      />
     </div>
   );
 };
