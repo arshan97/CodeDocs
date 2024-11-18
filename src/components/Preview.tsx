@@ -43,9 +43,11 @@ const Preview = ({ code, error }: { code: string; error: string }) => {
   useEffect(() => {
     // Reset the iframe by setting the srcDoc, which will trigger the onLoad event
     iframe.current.srcdoc = html;
-    // setTimeout(() => {
-    //   iframe.current?.contentWindow?.postMessage(code, "*");
-    // }, 50);
+    // iframe.current?.contentWindow?.postMessage(code, "*");
+
+    setTimeout(() => {
+      iframe.current?.contentWindow?.postMessage(code, "*");
+    }, 10);
   }, [code]);
 
   return (
@@ -55,7 +57,7 @@ const Preview = ({ code, error }: { code: string; error: string }) => {
         title="CodeDocs"
         srcDoc={html}
         sandbox="allow-scripts allow-modals"
-        onLoad={handleLoad}
+        // onLoad={handleLoad}
       />
       {error && <div className="preview-error">{error}</div>}
     </div>
