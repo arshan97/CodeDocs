@@ -14,12 +14,12 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
 
   if (cell.type === "code") {
     child = (
-      <>
+      <div className="wrapper">
         <div className="action-bar-wrapper">
           <ActionBar id={cell.id} />
         </div>
         <CodeCell cell={cell} />
-      </>
+      </div>
     );
   } else {
     child = (

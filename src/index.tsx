@@ -4,6 +4,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Provider } from "react-redux";
 import { store } from "./state";
 import CellList from "./components/CellList";
+import "./styles/title.css";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Provider store={store}>
         <div style={{ padding: "20px" }}>
           <h1
+            className="title"
             style={{
               display: "flex",
               justifyContent: "center",

@@ -36,6 +36,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
       <div className="text-editor" ref={ref}>
         <MDEditor
           value={cell.content || ""}
+          className="gradient"
           onChange={(v) => updateCell(cell.id, v || "")}
           style={{
             borderRadius: "5px",
