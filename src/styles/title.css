@@ -1,5 +1,7 @@
-.title {
+.codedocs-title {
   background: -webkit-linear-gradient(#eee, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transform: scale(1.5);
+  margin-bottom: 50px;
 }

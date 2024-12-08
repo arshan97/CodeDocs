@@ -12,7 +12,7 @@ const App = () => {
       <Provider store={store}>
         <div style={{ padding: "20px" }}>
           <h1
-            className="title"
+            className="codedocs-title"
             style={{
               display: "flex",
               justifyContent: "center",

@@ -35,10 +35,10 @@ const html = `
 const Preview = ({ code, error }: { code: string; error: string }) => {
   const iframe = useRef<any>(null);
 
-  const handleLoad = () => {
-    // After the iframe resets and loads the new srcDoc content, post the code
-    iframe.current?.contentWindow?.postMessage(code, "*");
-  };
+  // const handleLoad = () => {
+  //   // After the iframe resets and loads the new srcDoc content, post the code
+  //   iframe.current?.contentWindow?.postMessage(code, "*");
+  // };
 
   useEffect(() => {
     // Reset the iframe by setting the srcDoc, which will trigger the onLoad event

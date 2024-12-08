@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Fragment, useEffect } from "react";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import CellListItem from "./CellListItem";
@@ -46,7 +47,7 @@ function welcome(name) {
   return \`Hello, \${name}! Ready to create with CodeDocs?\`;  
 }  
 
-console.log(show("Coder"));  
+show(welcome("Coder"));  
 \`\`\`
 
 Start writing and coding now—because your best ideas deserve a powerful platform.  
