@@ -33,7 +33,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
 
   if (editing) {
     return (
-      <div className="text-editor" ref={ref}>
+      <div data-color-mode="dark" className="text-editor" ref={ref}>
         <MDEditor
           value={cell.content || ""}
           className="gradient"
@@ -47,7 +47,11 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
   }
 
   return (
-    <div className="text-editor" onClick={() => setEditing(true)}>
+    <div
+      data-color-mode="dark"
+      className="text-editor"
+      onClick={() => setEditing(true)}
+    >
       <MDEditor.Markdown
         source={cell.content || "Click to edit..."}
         style={{
