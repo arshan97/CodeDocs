@@ -46,6 +46,16 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
     );
   }
 
+  const markdownText = `
+# Welcome to CodeDocs 🚀
+
+**CodeDocs** is a platform for building, testing, and documenting your code in real-time. With CodeDocs, you can:
+
+- **Write clear documentation** using Markdown.
+- **Build and test your code** with a live preview.
+- **Collaborate and share** your work with ease.
+`;
+
   return (
     <div
       data-color-mode="dark"
@@ -53,7 +63,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
       onClick={() => setEditing(true)}
     >
       <MDEditor.Markdown
-        source={cell.content || "Click to edit..."}
+        source={cell.content || markdownText}
         style={{
           borderRadius: "5px",
         }}

@@ -46,13 +46,15 @@ export const moveCell = (id: string, direction: Direction): MoveCellAction => {
 
 export const insertCellBefore = (
   id: string | null,
-  cellType: CellTypes
+  cellType: CellTypes,
+  content: string
 ): InsertCellBeforeAction => {
   return {
     type: ActionType.INSERT_CELL_BEFORE,
     payload: {
       id,
       type: cellType,
+      content: content,
     },
   };
 };
